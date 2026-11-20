@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#6C4DFF">
+<title>Wörter — немецкие слова</title>
+<style>
+:root{--bg:#F6F4FF;--tx:#1F2340;--cd:#fff;--pl:#6C4DFF;--pl2:#5b3de6;--sun:#FFC93C;--co:#FF6B6B;--mint:#2EC4A6;--sky:#4D8BFF;--ln:rgba(108,77,255,.12)}
+.dark{--bg:#14152B;--tx:#EDEBFF;--cd:#1F2145}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:600 16px/1.35 ui-rounded,Nunito,system-ui,sans-serif}
+#app{max-width:460px;margin:auto;padding:20px 16px calc(100px + env(safe-area-inset-bottom))}
+h1{font-size:26px;font-weight:800;margin:0 0 14px}
+button{font:inherit;color:inherit;border:0;cursor:pointer}
+.card{background:var(--cd);border-radius:20px;padding:16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.btn{border-radius:14px;padding:12px 16px;font-weight:800;width:100%;transition:transform .1s}
+.btn:active,.opt:active{transform:scale(.97)}.btn:disabled{opacity:.4}
+.bp{background:linear-gradient(135deg,var(--pl),var(--pl2));color:#fff}.bo{background:var(--cd);box-shadow:inset 0 0 0 2px var(--ln)}
+.bs{background:var(--sun);color:#1F2340}.bc{background:var(--co);color:#fff}.bm{background:var(--mint);color:#1F2340}
+.grid{display:grid;gap:8px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr 1fr}
+.row{display:flex;align-items:center;gap:10px}.sp{justify-content:space-between}.c{text-align:center}.mut{opacity:.7;font-size:13px}
+.bar{height:10px;border-radius:9px;background:var(--ln);overflow:hidden}.bar i{display:block;height:100%;border-radius:9px;transition:width .3s}
+.opt{width:100%;text-align:left;background:var(--cd);border-radius:16px;padding:13px 16px;margin-bottom:8px;box-shadow:inset 0 0 0 2px var(--ln)}
+.opt.ok{background:rgba(46,196,166,.2);box-shadow:inset 0 0 0 2px var(--mint)}
+.opt.no{background:rgba(255,107,107,.2);box-shadow:inset 0 0 0 2px var(--co)}
+.opt.dim{opacity:.45}.opt.sel{box-shadow:inset 0 0 0 2px var(--pl);background:rgba(108,77,255,.12)}.opt.gone{opacity:.25}
+.inp{width:100%;font:inherit;font-size:17px;padding:12px 16px;border-radius:14px;border:0;background:var(--cd);color:var(--tx);box-shadow:inset 0 0 0 2px var(--ln);outline:0;margin-bottom:8px}
+.inp:focus{box-shadow:inset 0 0 0 2px var(--pl)}
+.tp{display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:inset 0 0 0 2px transparent}
+.tp.on{box-shadow:inset 0 0 0 2px var(--pl)}.tp input{width:20px;height:20px;accent-color:var(--pl)}.tp b{flex:1}
+.pill{background:rgba(255,201,60,.3);border-radius:99px;padding:2px 10px;font-size:12px;font-weight:800}
+.big{font-size:28px;font-weight:800;line-height:1.25}
+.tag{display:inline-block;border-radius:10px;padding:4px 10px;font-size:13px;margin:2px 2px 2px 0}
+.seg{display:flex;gap:4px;background:var(--ln);border-radius:16px;padding:4px;margin-bottom:12px}
+.seg button{flex:1;padding:8px 4px;border-radius:12px;background:none;font-weight:800;font-size:13px}.seg .on{background:var(--pl);color:#fff}
+.sw{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;padding:10px 0;text-align:left}
+.sw i{width:46px;height:28px;border-radius:99px;background:var(--ln);padding:4px;transition:.2s}
+.sw i:after{content:"";display:block;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}
+.sw.on i{background:var(--mint)}.sw.on i:after{transform:translateX(18px)}
+.say{width:44px;height:44px;border-radius:50%;background:rgba(77,139,255,.15);font-size:20px;display:inline-flex;align-items:center;justify-content:center}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;max-width:460px;margin:auto;background:var(--cd);border-top:1px solid var(--ln);padding:6px 6px calc(8px + env(safe-area-inset-bottom))}
+nav button{flex:1;background:none;font-size:11px;font-weight:800;opacity:.55}nav button.on{opacity:1;color:var(--pl)}nav span{display:block;font-size:22px;margin-bottom:2px}
+.flipper{perspective:1000px}
+.flip{position:relative;transform-style:preserve-3d;transition:transform .5s;min-height:220px}
+.flip.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.face.back{transform:rotateY(180deg)}
+.theory h2{font-size:18px;margin:14px 0 8px;color:var(--pl)}
+.theory h3{font-size:15px;margin:10px 0 6px;color:var(--tx)}
+.theory ul{margin:0 0 10px 18px;padding:0}
+.theory li{margin:4px 0;line-height:1.4}
+.theory .card{margin-bottom:10px}
+.timer-pill{display:inline-block;background:rgba(255,107,107,.15);color:var(--co);border-radius:10px;padding:4px 10px;font-size:13px;font-weight:800;font-family:monospace}
+.word-of-day{background:linear-gradient(135deg,var(--pl),var(--pl2));color:#fff;border-radius:18px;padding:16px;margin-bottom:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/* ===== ДАННЫЕ (без изменений) ===== */
+const RAW=`#Zusammenleben
+z1|aufwachsen|вырастать|v|||wuchs auf, ist aufgewachsen|in guten / schlechten Verhältnissen aufwachsen|вырастать в хороших / плохих условиях
+z2|betreuen|заботиться о (ком-л.), ухаживать за (кем-л.)|v|||betreute, hat betreut
+z3|die Betreuung|уход, забота|n|die|-en
+z4|einsam|одинокий|a
+z5|erwachsen|взрослый|a||||ein erwachsener Mensch|взрослый человек
+z6|der / die Erwachsene|взрослый / взрослая|n|der/die|-n
+z7|erziehen|воспитывать|v|||erzog, hat erzogen
+z8|die Erziehung|воспитание|n|die|-
+z9|die Generation|поколение|n|die|-en
+z10|heranwachsen|подрастать|v|||wuchs heran, ist herangewachsen|groß werden|становиться взрослым
+#Beziehung zwischen den Eltern und Kindern
+b1|sich ärgern (über)|злиться (на кого-л. / что-л.)|v|||ärgerte sich, hat sich geärgert|sich über jemanden / etwas (Akk.) ärgern|злиться на кого-л. / что-л.
+b2|der Ärger|досада, гнев|n|der|-
+b3|geistig|духовный, умственный|a
+b4|sich kümmern (um)|заботиться (о ком-л.)|v|||kümmerte sich, hat sich gekümmert|sich um jemanden (Akk.) kümmern|заботиться о ком-л.
+b5|minderjährig|несовершеннолетний|a
+b6|sich streiten|ссориться|v|||stritt sich, hat sich gestritten
+b7|überlassen|предоставлять|v|||überließ, hat überlassen|sich (Dat.) selbst überlassen sein|быть предоставленным самому себе
+b8|die Verantwortung|ответственность|n|die|-en||eine Verantwortung übernehmen|брать (взять) на себя ответственность
+b9|sich verhalten|вести себя; относиться|v|||verhielt sich, hat sich verhalten
+b10|das Verhalten|поведение, отношение|n|das|-
+b11|vernachlässigen|пренебрегать, не уделять внимания|v|||vernachlässigte, hat vernachlässigt|seine Pflichten vernachlässigen|пренебрегать своими обязанностями
+b12|sich versöhnen|помириться, мириться|v|||versöhnte sich, hat sich versöhnt
+b13|versorgen|обеспечивать|v|||versorgte, hat versorgt
+b14|sich vertragen|ладить; уживаться; терпеть, переносить|v|||vertrug sich, hat sich vertragen
+b15|volljährig|совершеннолетний|a
+#Familienstand
+f1|die Ehe|брак, супружество|n|die|-n
+f2|die Ehe schließen|вступать в брак|p|||schloss, hat geschlossen
+f3|die Eheschließung|бракосочетание|n|die|-en
+f4|das Ehepaar|супружеская чета; супруги|n|das|-e
+f5|der Familienstand|семейное положение|n|der|-
+f6|geschieden|разведенный|a
+f7|heiraten|жениться (о мужчине) на (ком-л.) / выходить замуж (о женщине) за (кого-л.)|v|||heiratete, hat geheiratet|jemanden (Akk.) heiraten|жениться на ком-л. / выходить замуж за кого-л.
+f8|die Heirat|женитьба (для мужчины) / замужество (для женщины)|n|die|-en
+f9|ledig|холостой / незамужняя|a
+f10|sich scheiden lassen|разводиться с (кем-л.)|v|||ließ sich scheiden, hat sich scheiden lassen|sich von jemandem (Dat.) scheiden lassen|разводиться с кем-л.
+f11|die Scheidung|развод|n|die|-en
+f12|verheiratet|женатый / замужняя|a
+#Lebensformen
+l1|adoptieren|усыновлять / удочерять|v|||adoptierte, hat adoptiert
+l2|die Adoption|усыновление / удочерение|n|die|-en
+l3|die Adoptiveltern|приемные родители|n|die
+l4|das Adoptivkind|приемный ребенок|n|das|-er
+l5|alleinstehend|одинокий (не замужем/не женат)|a
+l6|pflegen|ухаживать за (кем-л.), заботиться о (ком-л.)|v|||pflegte, hat gepflegt|jemanden (Akk.) pflegen|ухаживать за кем-л.
+l7|die Pflegeeltern|приемные родители (взявшие ребенка на воспитание без усыновления)|n|die
+l8|die Pflegemutter|приемная мать|n|die|-mütter
+l9|der Pflegevater|приемный отец|n|der|-väter
+l10|das Pflegekind|приемный ребенок (на воспитании)|n|das|-er
+#Familienfeste
+ff1|die Hochzeit|свадьба|n|die|-en
+ff2|die Braut|невеста|n|die|Bräute
+ff3|der Bräutigam|жених|n|der|-e
+ff4|eine Hochzeit feiern|праздновать свадьбу|p|||feierte, hat gefeiert
+ff5|der Hochzeitsbrauch|свадебный обычай|n|der|-bräuche
+ff6|trauen|венчать|v|||traute, hat getraut
+ff7|sich in der Kirche trauen lassen|венчаться в церкви|p
+ff8|sich auf dem Standesamt trauen lassen|зарегистрировать брак, расписаться в загсе|p
+ff9|die Trauung|бракосочетание, венчание|n|die|-en
+ff10|der Trauring|обручальное кольцо|n|der|-e`;
+const CATS=[],WORDS=[];
+RAW.split('\n').forEach(l=>{if(!l.trim())return;if(l[0]==='#'){CATS.push(l.slice(1));return}
+const [id,de,ru,p,article,plural,verbForms,exampleDe,exampleRu]=l.split('|');
+WORDS.push({id,de,ru,p,article,plural,verbForms,exampleDe,exampleRu,cat:CATS[CATS.length-1]})});
+
+/* ===== УТИЛИТЫ ===== */
+const $=s=>document.querySelector(s),KEY='de-words-v2';
+const shuf=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const norm=s=>s.toLowerCase().replace(/\(.*?\)/g,' ').replace(/[.,;!?]/g,' ').replace(/\s+/g,' ').trim();
+const ruV=s=>[norm(s),...s.split(/[,;\/]/).map(norm)].filter(Boolean);
+const deV=w=>[norm(w.de),norm(w.de.replace(/^(der|die|das)(\s*\/\s*(der|die|das))?\s+/i,''))];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pct=(n,t)=>t?Math.round(n/t*100):0;
+const day=(d=new Date())=>d.toISOString().slice(0,10);
+const learned=p=>p&&p.ok>=2&&!p.err;
+const learning=p=>p&&p.ok+p.bad>0&&!learned(p)&&!p.err;
+const inCat=c=>WORDS.filter(w=>w.cat===c);
+
+/* ===== СОСТОЯНИЕ ===== */
+let D={prog:{},xp:0,streak:0,last:'',dark:false,sound:true,speech:true};
+try{Object.assign(D,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}};
+
+function rec(id,ok){
+const p=D.prog[id]||{ok:0,bad:0,err:false},t=day();
+D.prog[id]=ok?{ok:p.ok+1,bad:p.bad,err:false}:{ok:p.ok,bad:p.bad+1,err:true};
+D.xp+=ok?10:2;
+if(D.last!==t){D.streak=D.last===day(new Date(Date.now()-864e5))?D.streak+1:1;D.last=t}
+save()
+}
+
+/* ===== ОЗВУЧКА ===== */
+let voices=[];
+function loadVoices(){voices=speechSynthesis.getVoices()}
+if(speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=loadVoices;
+loadVoices();
+function deVoice(){
+return voices.find(v=>v.lang.startsWith('de'))||voices.find(v=>v.lang.startsWith('de-DE'))||null
+}
+function say(t){
+if(!D.speech||!window.speechSynthesis)return;
+const clean=t.replace(/\(.*?\)/g,'').replace('/',' ').replace(/(der|die|das)\s*/i,'').trim();
+if(!clean)return;
+const u=new SpeechSynthesisUtterance(clean);
+u.lang='de-DE';
+u.rate=0.85;
+u.pitch=1.0;
+u.volume=1.0;
+const dv=deVoice();
+if(dv)u.voice=dv;
+speechSynthesis.cancel();
+speechSynthesis.speak(u)
+}
+
+function beep(ok){
+if(!D.sound)return;
+try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=ok?900:240;g.gain.value=.09;o.start();o.stop(c.currentTime+.15)}catch(e){}}
+function mk(ws,dir,kind){
+return ws.map(w=>{
+const d=dir==='mix'?(Math.random()<.5?'de-ru':'ru-de'):dir;
+const k=kind==='mix'?(Math.random()<.5?'choice':'type'):kind;
+const sh=x=>d==='de-ru'?x.ru:x.de;
+const pool=shuf(WORDS.filter(x=>x.id!==w.id&&x.cat!==w.cat)).slice(0,3);
+return{w,dir,d,kind:k,opts:shuf([sh(w),...pool.map(sh)])}
+})
+}
+
+/* ===== СОСТОЯНИЕ ЭКРАНОВ ===== */
+let scr='home',picked=[],mode='cards',sess=null,tm=null;
+let cfg={cats:[...CATS],count:10,dir:'de-ru',kind:'choice',timer:false,shuffle:true,onlyErr:false};
+const bar=(v,c='var(--mint)')=>`<div class=bar><i style="width:${v}%;background:${c}"></i></div>`;
+const sw=(on,fn,l)=>`<button class="sw ${on?'on':''}" onclick="${fn}">${l}<i></i></button>`;
+const seg=(k,opts)=>`<div class=seg>${opts.map(([v,l])=>`<button class="${cfg[k]===v?'on':''}" onclick="cfg.${k}=${JSON.stringify(v).replace(/"/g,"'")};render()">${l}</button>`).join('')}</div>`;
+const topics=(list,fn)=>CATS.map((c,i)=>`<label class="card tp ${list.includes(c)?'on':''}"><input type=checkbox ${list.includes(c)?'checked':''} onchange="${fn}(${i})"><b>${c}</b><span class=pill>${inCat(c).length}</span></label>`).join('');
+const toggle=(arr,c)=>arr.includes(c)?arr.filter(x=>x!==c):[...arr,c];
+
+/* ===== ГЛАВНАЯ ===== */
+function home(){
+const L=WORDS.filter(w=>learned(D.prog[w.id])).length;
+const ds=day().split('').reduce((a,c)=>a+c.charCodeAt(0),0);
+const wotd=WORDS[ds%WORDS.length];
+return `<h1>Hallo! 👋</h1>
+<p class=mut style="margin:-8px 0 14px">Сегодня учим немецкие слова</p>
+<div class="word-of-day">
+<div class=mut style="opacity:.9">Слово дня 📅</div>
+<div style="font-size:26px;font-weight:800">${esc(wotd.de)}</div>
+<div style="font-size:18px;margin-top:4px">${esc(wotd.ru)}</div>
+<button class="btn bp" style="width:auto;margin-top:10px;padding:8px 14px;font-size:13px" onclick="picked=[wotd.cat];mode='cards';startCard([wotd])">Изучить слово</button>
+</div>
+<div class="grid g3 c">${[['✅',L+'/'+WORDS.length,'выучено'],['🔥',D.streak,'дней подряд'],['⭐',D.xp,'XP']].map(([e,v,l])=>`<div class=card style="padding:12px"><div style="font-size:22px">${e}</div><b style="font-size:18px">${v}</b><div class=mut>${l}</div></div>`).join('')}</div>
+<div class="grid g3" style="margin-bottom:14px"><button class="btn bp" onclick="go('pick')">Учить слова</button><button class="btn bs" onclick="go('exam')">Экзамен</button><button class="btn bo" onclick="go('progress')">Прогресс</button></div>
+${CATS.map((c,i)=>{const ws=inCat(c),l=ws.filter(w=>learned(D.prog[w.id])).length;return `<button class=card style="width:100%;text-align:left;display:block" onclick="picked=[CATS[${i}]];go('pick')"><div class="row sp" style="margin-bottom:8px"><b>${c}</b><b style="color:var(--pl)">${pct(l,ws.length)}%</b></div>${bar(pct(l,ws.length))}</button>`}).join('')}`
+}
+
+/* ===== УЧИТЬ ===== */
+function startCard(ws){
+sess={m:'cards',ws,i:0,show:false,res:[],errs:[],fin:null};
+scr='play';render()
+}
+function start(m,ws,c=cfg){
+sess={m,ws,c,i:0,res:[],fb:null,left:20,ci:0,done:[],bad:[],sel:{},fin:null,show:false,errs:[],
+qs:m==='choice'||m==='type'?mk(ws,'de-ru',m):m==='exam'?mk(ws,c.dir,c.kind):[]};
+if(m==='match')sess.right=shuf(ws.slice(0,5));
+scr='play';render()
+}
+function pick(){
+const q=$('#src')?$('#src').value:'';
+let results=[];
+if(q){const nq=norm(q);results=WORDS.filter(w=>norm(w.de).includes(nq)||norm(w.ru).includes(nq))}
+return `<h1>Что учим?</h1>${topics(picked,'A.tp')}
+<button style="background:none;color:var(--pl);font-weight:800;margin:0 0 12px" onclick="picked=picked.length==CATS.length?[]:[...CATS];render()">${picked.length==CATS.length?'Снять все':'Выбрать все'}</button>
+<div class="grid g2" style="margin-bottom:12px">${[['cards','🃏','Карточки'],['choice','🎯','Выбор из 4'],['type','⌨️','Ввод'],['match','🧩','Пары']].map(([m,e,l])=>`<button class="card tp ${mode===m?'on':''}" style="margin:0" onclick="mode='${m}';render()">${e} ${l}</button>`).join('')}</div>
+<div class=card style="margin-bottom:12px">
+<div class=mut>Поиск по словам</div>
+<input id=src class=inp placeholder="Немецкое или русское…" value="${esc(q)}" oninput="render()">
+<div id="src-res">${results.length?`<div class=mut>Найдено: ${results.length}</div>${results.map(w=>`<div class="row" style="padding:8px 0;border-bottom:1px solid var(--ln)"><b style="flex:1">${esc(w.de)}</b><b style="color:var(--pl)">${esc(w.ru)}</b></div>`).join('')}`:''}</div>
+</div>
+<button class="btn bp" ${picked.length?'':'disabled'} onclick="start(mode,shuf(WORDS.filter(w=>picked.includes(w.cat))))">Начать учебу</button>`
+}
+
+/* ===== ЭКЗАМЕН ===== */
+function examSetup(){
+const ep=WORDS.filter(w=>cfg.cats.includes(w.cat)&&D.prog[w.id]?.err).length;
+return `<h1>Экзамен</h1>${topics(cfg.cats,'A.te')}<div class=card>
+<div class=mut>Вопросов</div>${seg('count',[[10,'10'],[20,'20'],[0,'Все']])}
+<div class=mut>Направление</div>${seg('dir',[['de-ru','DE→RU'],['ru-de','RU→DE'],['mix','Смешанное']])}
+<div class=mut>Тип вопросов</div>${seg('kind',[['choice','Выбор'],['type','Ввод'],['cards','Карточки'],['mix','Смешанный']])}
+${sw(cfg.timer,'cfg.timer=!cfg.timer;render()','Таймер (20 с)')}${sw(cfg.shuffle,'cfg.shuffle=!cfg.shuffle;render()','Перемешивать')}${sw(cfg.onlyErr,'cfg.onlyErr=!cfg.onlyErr;render()','Только ошибки ('+ep+')')}</div>
+<button class="btn bp" ${!cfg.cats.length||(cfg.onlyErr&&!ep)?'disabled':''} onclick="A.launch()">Начать экзамен</button>
+${cfg.onlyErr&&!ep?'<p class="c mut">В выбранных темах пока нет ошибок.</p>':''}`
+}
+
+/* ===== ПРОГРЕСС ===== */
+function progress(){
+const ps=WORDS.map(w=>D.prog[w.id]),L=ps.filter(learned).length;
+return `<h1>Прогресс</h1>
+<div class="grid g3 c">${[['Изучено',L,'--mint'],['В процессе',ps.filter(learning).length,'--sky'],['Ошибки',ps.filter(p=>p&&p.err).length,'--co']].map(([l,v,c])=>`<div class=card style="padding:12px"><b style="font-size:24px;color:var(${c})">${v}</b><div class=mut>${l}</div></div>`).join('')}</div>
+${CATS.map(c=>{const ws=inCat(c),l=ws.filter(w=>learned(D.prog[w.id])).length;return `<div class=card><div class="row sp" style="margin-bottom:8px"><b>${c}</b><b>${l}/${ws.length}</b></div>${bar(pct(l,ws.length))}</div>`}).join('')}
+<button class="btn bo" style="color:var(--co)" onclick="if(confirm('Сбросить весь прогресс?')){D.prog={};D.xp=0;D.streak=0;D.last='';save();render()}">Сбросить прогресс</button>
+<button class="btn bo" style="color:var(--co)" onclick="D.prog=Object.fromEntries(Object.entries(D.prog).map(([k,v])=>[k,{...v,err:false}]));save();render()">Сбросить только ошибки</button>`
+}
+
+/* ===== НАСТРОЙКИ ===== */
+function settings(){
+return `<h1>Настройки</h1><div class=card>${sw(D.dark,'D.dark=!D.dark;save();render()','Тёмная тема')}${sw(D.sound,'D.sound=!D.sound;save();render()','Звуки')}${sw(D.speech,'D.speech=!D.speech;save();render()','Озвучивание (de-DE)')}</div>
+<button class="btn bp" style="margin-top:10px" onclick="go('theory')">Теория (справочник)</button>
+<button class="btn bo" style="color:var(--co);margin-top:8px" onclick="if(confirm('Удалить все данные и настройки?')){localStorage.removeItem(KEY);location.reload()}">Сбросить данные</button>`
+}
+
+/* ===== ТЕОРИЯ — только слова ===== */
+function theory(){
+const stats=CATS.map(c=>{const ws=inCat(c),l=ws.filter(w=>learned(D.prog[w.id])).length;return `<div class="row sp" style="margin-bottom:6px;font-size:14px"><span style="opacity:.7">${c}</span><b>${l}/${ws.length}</b></div>`}).join('');
+const allWords=CATS.map(c=>{const ws=inCat(c);
+const rows=ws.map(w=>`<div style="padding:6px 0;border-bottom:1px solid var(--ln);font-size:14px"><span style="opacity:.7">${w.de}${w.article?' '+w.article:''}</span> <b style="color:var(--pl)">${esc(w.ru)}</b>${w.verbForms?`<div class="mut" style="margin-top:2px">Формы: ${esc(w.verbForms)}</div>`:''}${w.plural?`<div class="mut" style="margin-top:2px">Мн.ч.: ${esc(w.plural)}</div>`:''}</div>`).join('');
+return `<div class=card style="margin-bottom:10px"><h3 style="margin:0 0 6px;font-size:15px">${c}</h3>${rows}</div>`}).join('');
+return `<h1>Теория</h1>
+<div class="theory">
+<div class=card>
+<h2>📊 Подсчет слов по темам</h2>
+<div style="margin-bottom:10px"><b style="font-size:16px">${WORDS.length}</b> <span class=mut>всего слов</span></div>
+${stats}
+<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--ln)"><b style="color:var(--pl)">Изучено всего:</b> <b>${WORDS.filter(w=>learned(D.prog[w.id])).length}/${WORDS.length}</b></div>
+</div>
+<div class=card style="margin-bottom:10px">
+<h2>📚 Все слова (${WORDS.length})</h2>
+<div style="max-height:400px;overflow-y-auto;padding-right:4px">${allWords}</div>
+</div>
+</div>`
+}
+
+/* ===== ИГРА / ЭКЗАМЕН ===== */
+function play(){
+const s=sess;
+if(s.fin){
+const ok=s.fin.filter(r=>r.ok).length,p=pct(ok,s.fin.length),er=s.fin.filter(r=>!r.ok);
+let endBtn='';
+if(s.m==='cards'){
+if(er.length>0)endBtn=`<button class="btn bc" onclick="A.errs()">Прорешать ошибки заново (${er.length})</button>`;
+endBtn+=`<button class="btn bp" onclick="A.again()">Пройти ещё раз</button>`;
+}else{
+let errBtn='';
+if(s.m==='exam'&&er.length>0)errBtn=`<button class="btn bc" onclick="A.errsExam()">Повторить ошибки (${er.length})</button>`;
+endBtn=`${errBtn}<button class="btn bp" onclick="A.again()">${s.m==='exam'?'Пройти ещё раз':'Ещё раз'}</button>`;
+}
+return `<div class="card c"><div style="font-size:48px">${p>=75?'🎉':p>=50?'👍':'💪'}</div><div class=big>${ok} из ${s.fin.length} · ${p}%</div>${s.m==='exam'?`<b style="color:var(--pl)">Оценка: ${p>=90?5:p>=75?4:p>=50?3:2}</b>`:''}</div>
+${er.length?`<div class=card><b>Разбор ошибок</b>${er.map(r=>`<div style="border-top:1px solid var(--ln);margin-top:8px;padding-top:8px;font-size:14px"><b>${esc(r.w.de)}</b> — ${esc(r.w.ru)}${r.g?`<div style="color:var(--co);margin-top:4px">Твой ответ: ${esc(r.g)}</div>`:''}</div>`).join('')}</div>`:''}
+<div class=grid style="grid-auto-flow:column;gap:8px">${endBtn}<button class="btn bo" onclick="A.quit()">На главную</button></div>`
+}
+// ----- Карточки -----
+if(s.m==='cards'){
+const w=s.ws[s.i];
+const show=s.show;
+return `${bar(pct(s.i+1,s.ws.length),'var(--pl)')}
+<div class="flipper" style="margin-top:14px">
+<div class="flip ${show?'flipped':''}">
+<div class="face front" onclick="A.rev()">
+<div class=mut>Русское слово</div>
+<div class=big style="font-size:30px">${esc(w.ru)}</div>
+</div>
+<div class="face back" onclick="A.rev()">
+<div class=mut>Немецкое слово</div>
+<div style="font-size:26px;font-weight:800">${esc(w.de)}${w.article?' <span style="opacity:.8">'+esc(w.article)+'</span>':''}</div>
+${w.verbForms?`<div class=tag style="background:rgba(77,139,255,.18)">${esc(w.verbForms)}</div>`:''}
+${w.plural?`<div class=tag style="background:rgba(46,196,166,.18)">Мн.ч.: ${esc(w.plural)}</div>`:''}
+${w.exampleDe?`<div class=mut style="margin-top:8px">${esc(w.exampleDe)}<br>${esc(w.exampleRu)}</div>`:''}
+</div>
+</div>
+</div>
+${show?`<div class="grid g2" style="margin-top:12px"><button class="btn bc" onclick="A.go(0)">Повторить</button><button class="btn bm" onclick="A.go(1)">Знаю</button></div>`:`<button class="btn bp" onclick="A.rev()">Показать ответ</button>`}`
+}
+// ----- Экзамен: карточки (самопроверка) -----
+if(s.m==='exam'&&s.qs[s.i]&&s.qs[s.i].kind==='cards'){
+const q=s.qs[s.i],t=q.dir==='de-ru'?q.w.ru:q.w.de;
+return `${bar(pct(s.i+1,s.qs.length),'var(--pl)')}
+<div class=row style="margin-bottom:14px"><div style="flex:1"></div><b style="font-size:14px">${s.i+1}/${s.qs.length}</b>${s.c.timer?`<span class="timer-pill" id=tm>${s.left}</span>`:''}</div>
+<div class="card c" style="min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px" onclick="${s.show?'':'A.rev()'}">
+<div class=mut>${q.dir==='de-ru'?'Переведи на русский':'Переведи на немецкий'}</div>
+<div class=big style="font-size:26px">${q.dir==='de-ru'?esc(q.w.de):esc(q.w.ru)}</div>
+${q.dir==='de-ru'?`<button class=say onclick="event.stopPropagation();A.say()" style="margin-top:6px">🔊</button>`:''}
+${s.show?`<div style="font-size:20px;font-weight:800">${esc(t)}</div>`:''}
+</div>
+${s.show?`<div class="grid g2" style="margin-top:12px"><button class="btn bm" onclick="A.gc(1)">Знаю</button><button class="btn bc" onclick="A.gc(0)">Не знаю</button></div>`:`<button class="btn bp" onclick="A.rev()">Показать ответ</button>`}`
+}
+// ----- Match mode -----
+if(s.m==='match'){
+const ch=s.ws.slice(s.ci*5,s.ci*5+5),n=Math.ceil(s.ws.length/5);
+const t=(id,side)=>s.done.includes(id)?'gone':s.sel[side]===id?'sel':'';
+return `${bar(pct(s.ci,n),'var(--pl)')}
+<p class="c mut" style="margin:12px 0">Найди пары: слово ↔ перевод</p>
+<div class="grid g2">
+<div>${ch.map(w=>`<button class="opt ${t(w.id,'l')}" style="font-size:14px" onclick="A.mp('l','${w.id}')">${esc(w.de)}</button>`).join('')}</div>
+<div>${s.right.map(w=>`<button class="opt ${t(w.id,'r')}" style="font-size:14px" onclick="A.mp('r','${w.id}')">${esc(w.ru)}</button>`).join('')}</div>
+</div>`
+}
+// ----- Остальные режимы экзамена -----
+if(!s.qs||!s.qs[s.i])return `<div class=card c><div class=mut>Нет вопросов для отображения</div><button class="btn bp" onclick="A.quit()">На главную</button></div>`;
+const q=s.qs[s.i],t=q.dir==='de-ru'?q.w.ru:q.w.de,fb=s.fb;
+return `<div class=row style="margin-bottom:14px"><div style="flex:1">${bar(pct(s.i+1,s.qs.length),'var(--pl)')}</div><b style="font-size:14px">${s.i+1}/${s.qs.length}</b>${s.c.timer?`<span class="timer-pill" id=tm>${s.left}</span>`:''}</div>
+<div class="card c" style="min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px"><div class=mut>${q.dir==='de-ru'?'Переведи на русский':'Переведи на немецкий'}</div><div class=big style="font-size:24px">${q.dir==='de-ru'?esc(q.w.de):esc(q.w.ru)}</div>${q.dir==='de-ru'?`<button class=say onclick="event.stopPropagation();A.say()" style="margin-top:6px">🔊</button>`:''}</div>
+${q.kind==='choice'?q.opts.map((o,k)=>`<button class="opt ${fb?(o===t?'ok':o===fb.g?'no':'dim'):''}" ${fb?'disabled':''} onclick="A.pk(${k})">${esc(o)}</button>`).join(''):`<input id=in class=inp autocomplete=off autocapitalize=off value="${fb?esc(fb.g):''}" ${fb?'disabled':''} placeholder="${q.dir==='de-ru'?'Перевод…':'Слово по-немецки…'}" onkeydown="if(event.key==='Enter')A.chk()">`}
+${fb?`<div class=card style="background:${fb.ok?'rgba(46,196,166,.2)':'rgba(255,107,107,.2)'}">${fb.ok?'Верно! 🎉':'Правильно: <b>'+esc(t)+'</b>'}</div>`:''}
+<div class=grid style="grid-auto-flow:column;gap:8px">${!fb?`<button class="btn bo" onclick="A.skip()">Пропустить</button>`:''}${!fb&&q.kind==='type'?`<button class="btn bp" onclick="A.chk()">Проверить</button>`:''}${fb?`<button class="btn bp" onclick="A.next()">${s.i+1>=s.qs.length?'Завершить':'Дальше'}</button>`:''}</div>`
+}
+const A={
+tp(i){picked=toggle(picked,CATS[i]);render()},
+te(i){cfg.cats=toggle(cfg.cats,CATS[i]);render()},
+say(){const s=sess;if(s.m==='cards')say(s.ws[s.i].de);else say(s.qs[s.i].w.de)},
+rev(){sess.show=true;if(D.speech){const s=sess;say(s.m==='cards'?s.ws[s.i].de:s.qs[s.i].w.de)}render()},
+adv(){const s=sess;if(s.m==='cards'?s.i+1>=s.ws.length:s.i+1>=s.qs.length)s.fin=s.res;else{s.i++;s.fb=null;s.show=false;s.left=20}render()},
+go(ok){const s=sess,w=s.ws[s.i];rec(w.id,!!ok);beep(!!ok);s.res.push({w,ok:!!ok});if(!ok)s.errs.push(w.id);A.adv()},
+gc(ok){const s=sess,q=s.qs[s.i];rec(q.w.id,!!ok);beep(!!ok);s.res.push({w:q.w,ok:!!ok});A.adv()},
+sub(g){const s=sess,q=s.qs[s.i];if(s.fb)return;const t=q.dir==='de-ru'?q.w.ru:q.w.de;
+const ok=q.kind==='choice'?g===t:q.dir==='de-ru'?ruV(q.w.ru).includes(norm(g)):deV(q.w).includes(norm(g));
+beep(ok);rec(q.w.id,ok);s.fb={g,ok};s.res.push({w:q.w,ok,g});render()},
+pk(k){A.sub(sess.qs[sess.i].opts[k])},chk(){const v=$('#in').value;if(v.trim())A.sub(v)},
+next(){A.adv()},skip(){const s=sess;s.res.push({w:s.qs[s.i].w,ok:false,g:''});A.adv()},
+errs(){const ew=WORDS.filter(w=>sess.errs.includes(w.id));start('cards',shuf(ew))},
+errsExam(){const ew=sess.fin.filter(r=>!r.ok).map(r=>r.w);start('exam',shuf(ew))},
+again(){
+if(sess.m==='cards')start('cards',shuf(sess.ws));
+else if(sess.m==='exam'){let p=WORDS.filter(w=>cfg.cats.includes(w.cat));if(cfg.onlyErr)p=p.filter(w=>D.prog[w.id]?.err);if(cfg.shuffle)p=shuf(p);start('exam',cfg.count?p.slice(0,cfg.count):p)}
+else start(sess.m,shuf(sess.ws),sess.c)
+},
+launch(){let p=WORDS.filter(w=>cfg.cats.includes(w.cat));if(cfg.onlyErr)p=p.filter(w=>D.prog[w.id]?.err);if(cfg.shuffle)p=shuf(p);start('exam',cfg.count?p.slice(0,cfg.count):p)},
+mp(side,id){const s=sess;if(s.done.includes(id))return;s.sel[side]=id;const{l,r}=s.sel;if(l&&r){
+if(l===r){beep(1);rec(l,!s.bad.includes(l));s.done.push(l)}else{beep(0);rec(l,false);s.bad.push(l,r)}s.sel={}}
+const n=s.ws.slice(s.ci*5,s.ci*5+5).length;if(s.done.length>=n){if((s.ci+1)*5>=s.ws.length)s.fin=s.ws.map(w=>({w,ok:!s.bad.includes(w.id)}));else{s.ci++;s.done=[];s.right=shuf(s.ws.slice(s.ci*5,s.ci*5+5))}}render()},
+quit(){sess=null;go('home')}
+};
+function go(s){scr=s;render()}
+function render(){
+clearInterval(tm);
+document.body.classList.toggle('dark',D.dark);
+const v={home,pick,exam:examSetup,progress,settings,theory,play}[scr]();
+const navActive=scr==='theory'?'settings':scr;
+const nav=scr==='play'?'':`<nav>${[['home','🏠','Главная'],['pick','📚','Учить'],['exam','📝','Экзамен'],['progress','📈','Прогресс'],['settings','⚙️','Ещё']].map(([s,e,l])=>`<button class="${navActive===s?'on':''}" onclick="go('${s}')"><span>${e}</span>${l}</button>`).join('')}</nav>`;
+$('#app').innerHTML=(scr==='play'?`<button style="background:none;opacity:.7;margin-bottom:14px;font-weight:800" onclick="A.quit()">✕ Выйти</button>`:'')+v+nav;
+const el=$('#in');if(el&&!el.disabled)el.focus();
+if(scr==='play'&&sess&&sess.m==='exam'&&sess.c.timer&&!sess.fb&&!sess.fin)tm=setInterval(()=>{if(--sess.left<=0)A.sub('');else $('#tm')&&($('#tm').textContent=sess.left)},1000)
+}
+render();
+</script>
+</body>
+</html>
